@@ -1,0 +1,15 @@
+{
+  "$schema": "https://agent-plugins.org/schemas/1.0.0/plugin.schema.json",
+  "name": "treza",
+  "version": "1.0.1",
+  "description": "Build, run, schedule, and publish AI video pipelines to YouTube and TikTok from any MCP client.",
+  "author": {
+    "name": "Treza Labs",
+    "email": "hello@trezalabs.com",
+    "url": "https://www.trezalabs.com"
+  },
+  "homepage": "https://www.trezalabs.com/connect",
+  "repository": "https://github.com/treza-labs/treza-plugin",
+  "license": "MIT",
+  "keywords": ["mcp", "video", "ai-video", "youtube", "tiktok", "pipelines", "veo", "seedance", "x402"]
+}
