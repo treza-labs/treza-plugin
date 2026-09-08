@@ -11,14 +11,14 @@
 
 **Remote (recommended).** Point any client that supports OAuth at `https://www.trezalabs.com/api/mcp`. The first connection signs you in with Google and creates the Treza account. Nothing to install.
 
-**stdio bridge.** For clients and agent runtimes that only spawn local servers, this repo ships `treza-mcp`, a small Node bridge that forwards every tool, prompt, and resource to the hosted endpoint. It needs a scoped API key in `TREZA_API_KEY` (mint one in the Treza app under Settings, API keys, or have an OAuth-connected client call `create_api_key`).
+**stdio bridge.** For clients and agent runtimes that only spawn local servers, this repo ships [`treza-mcp`](https://www.npmjs.com/package/treza-mcp), a small Node bridge that forwards every tool, prompt, and resource to the hosted endpoint. It needs a scoped API key in `TREZA_API_KEY` (mint one in the Treza app under Settings, API keys, or have an OAuth-connected client call `create_api_key`).
 
 ```json
 {
   "mcpServers": {
     "treza": {
       "command": "npx",
-      "args": ["-y", "github:treza-labs/treza-plugin"],
+      "args": ["-y", "treza-mcp"],
       "env": { "TREZA_API_KEY": "treza_live_..." }
     }
   }
