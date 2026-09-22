@@ -38,7 +38,14 @@
 
 ## Tools
 
-Sixteen tools: `list_pipeline_templates`, `list_node_types`, `get_node_type`, `create_pipeline`, `update_pipeline`, `publish_pipeline`, `list_pipelines`, `get_pipeline`, `run_pipeline`, `get_run`, `list_runs`, `set_schedule_paused`, `estimate_run_cost`, `get_credit_balance`, `list_connected_channels`, `create_api_key`. Read-only tools carry `readOnlyHint`; `run_pipeline` and `publish_pipeline` spend prepaid credits and can post to a connected channel.
+Nineteen tools in four groups:
+
+- **Authoring:** `list_pipeline_templates`, `list_node_types`, `get_node_type`, `create_pipeline`, `update_pipeline`, `publish_pipeline`
+- **Running:** `list_pipelines`, `get_pipeline`, `run_pipeline`, `get_run`, `list_runs`, `set_schedule_paused`
+- **Finishing media the account already has:** `list_assets` browses the media library, `assemble_video` joins clips into one video with optional narration, a music bed, and burned-in captions, and `edit_asset` runs node operations (captions, upscale, trim, crop, and more) over a single file
+- **Budget and access:** `estimate_run_cost`, `get_credit_balance`, `list_connected_channels`, `create_api_key`
+
+Read-only tools carry `readOnlyHint`. `run_pipeline`, `publish_pipeline`, `assemble_video`, and `edit_asset` spend prepaid credits, and `run_pipeline` and `publish_pipeline` can post to a connected channel. `assemble_video` and `edit_asset` render in the background and return a run to poll with `get_run`.
 
 ## Cursor without the plugin
 

@@ -1,11 +1,11 @@
 ---
 name: treza-video-pipelines
-description: Use the Treza MCP server to turn a brief into a finished AI video and publish it to YouTube or TikTok. Use when the user asks for a video, a Short, a clip from a podcast or long video, a scheduled channel, or a cost estimate for a render.
+description: Use the Treza MCP server to turn a brief into a finished AI video and publish it to YouTube or TikTok. Use when the user asks for a video, a Short, a clip from a podcast or long video, a scheduled channel, edits to media they already made (captions, music, joining clips), or a cost estimate for a render.
 ---
 
 # Treza video pipelines
 
-Treza runs AI video pipelines as node graphs: writer, video and image models, narration, music, captions, publisher. The MCP server exposes 16 tools that cover authoring, running, budgeting, and publishing.
+Treza runs AI video pipelines as node graphs: writer, video and image models, narration, music, captions, publisher. The MCP server exposes 19 tools that cover authoring, running, finishing existing media, budgeting, and publishing.
 
 ## Workflow
 
@@ -16,9 +16,10 @@ Treza runs AI video pipelines as node graphs: writer, video and image models, na
 5. **Run and poll.** `run_pipeline`, then `get_run` until status is `completed` or `failed`. Renders take minutes.
 6. **Publishing needs a channel.** `list_connected_channels` returns the ids a youtube-upload or tiktok-upload node needs. Channels are connected by a human in the Treza app.
 7. **Schedules fire from the published snapshot.** A schedule-trigger on the draft does nothing until `publish_pipeline`. Use `set_schedule_paused` to pause or resume without republishing.
+8. **Finish media the account already has.** `list_assets` returns the account's images, videos, and audio, newest first. `assemble_video` joins clips in order into one video, optionally over narration and a music bed, with burned-in captions. `edit_asset` runs node operations from `list_node_types` (captions, upscale, trim, crop, and more) over one file, in order. Only pass urls that came from `list_assets` or a run's outputs in `get_run`. Both render in the background and spend credits: tell the user before calling, then poll `get_run` with the returned `pipelineId` and `runId`.
 
 ## Rules
 
-- Never call `run_pipeline` or `publish_pipeline` without telling the user the estimated cost.
+- Never call `run_pipeline` or `publish_pipeline` without telling the user the estimated cost, and never call `assemble_video` or `edit_asset` without telling the user it spends credits.
 - Everything you create is visible at https://www.trezalabs.com/platform, so name pipelines clearly.
 - Account creation happens in the OAuth flow when the client connects. If tools return 401, the user needs to connect the server, not paste a key.
