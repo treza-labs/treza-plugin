@@ -38,14 +38,17 @@
 
 ## Tools
 
-Nineteen tools in four groups:
+Twenty-four tools in five groups:
 
 - **Authoring:** `list_pipeline_templates`, `list_node_types`, `get_node_type`, `create_pipeline`, `update_pipeline`, `publish_pipeline`
 - **Running:** `list_pipelines`, `get_pipeline`, `run_pipeline`, `get_run`, `list_runs`, `set_schedule_paused`
-- **Finishing media the account already has:** `list_assets` browses the media library, `assemble_video` joins clips into one video with optional narration, a music bed, and burned-in captions, and `edit_asset` runs node operations (captions, upscale, trim, crop, and more) over a single file
-- **Budget and access:** `estimate_run_cost`, `get_credit_balance`, `list_connected_channels`, `create_api_key`
+- **Your media:** `list_assets` browses the media library, `import_media` adds a file (an attachment, a public link, or a local file sent through `create_upload_url`), `assemble_video` joins clips into one video with optional narration, a music bed, and burned-in captions, and `edit_asset` runs node operations (captions, upscale, trim, crop, and more) over a single file
+- **Channels and publishing:** `list_connected_channels`, `connect_channel` returns a link that connects a YouTube channel or TikTok account in the person's own browser, and `publish_asset` lays a finished video out for review before it posts. `confirm_publish` belongs to the publish panel: it runs when the person presses Post there, never from the model
+- **Budget and access:** `estimate_run_cost`, `get_credit_balance`, `create_api_key` (OAuth connections only)
 
 Read-only tools carry `readOnlyHint`. `run_pipeline`, `publish_pipeline`, `assemble_video`, and `edit_asset` spend prepaid credits, and `run_pipeline` and `publish_pipeline` can post to a connected channel. `assemble_video` and `edit_asset` render in the background and return a run to poll with `get_run`.
+
+In clients that show MCP Apps panels, such as ChatGPT and Claude, results appear as panels: the finished file, the price with a Start render button, a library to pick files from, a map of a pipeline, and the post before it goes out. Other clients get the same answers as text. Posting with `publish_asset` needs a panel; without one, publish through a pipeline that ends in a `youtube-upload` or `tiktok-upload` node.
 
 ## Cursor without the plugin
 

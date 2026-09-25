@@ -39,7 +39,7 @@ if (!apiKey) {
   process.exit(1);
 }
 
-const remote = new Client({ name: 'treza-mcp-stdio', version: '1.0.1' });
+const remote = new Client({ name: 'treza-mcp-stdio', version: '1.2.0' });
 const remoteTransport = new StreamableHTTPClientTransport(new URL(REMOTE_URL), {
   requestInit: { headers: { Authorization: `Bearer ${apiKey}` } },
 });
@@ -52,10 +52,10 @@ try {
 }
 
 const remoteCaps = remote.getServerCapabilities() || {};
-const remoteInfo = remote.getServerVersion() || { name: 'treza', version: '1.0.1' };
+const remoteInfo = remote.getServerVersion() || { name: 'treza', version: '1.2.0' };
 
 const local = new Server(
-  { name: remoteInfo.name || 'treza', version: remoteInfo.version || '1.0.1' },
+  { name: remoteInfo.name || 'treza', version: remoteInfo.version || '1.2.0' },
   {
     capabilities: {
       tools: remoteCaps.tools || {},

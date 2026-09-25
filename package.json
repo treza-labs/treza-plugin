@@ -1,6 +1,6 @@
 {
   "name": "treza-mcp",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "Treza MCP server: build, run, schedule, and publish AI video pipelines. Runs as a stdio bridge to the hosted Treza endpoint.",
   "type": "module",
   "bin": { "treza-mcp": "bin/treza-mcp.mjs" },
