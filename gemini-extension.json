@@ -1,0 +1,10 @@
+{
+  "name": "treza",
+  "version": "1.3.0",
+  "description": "Build, run, schedule, and publish AI video pipelines to YouTube and TikTok from Gemini CLI.",
+  "mcpServers": {
+    "treza": {
+      "httpUrl": "https://www.trezalabs.com/api/mcp"
+    }
+  }
+}

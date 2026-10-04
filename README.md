@@ -1,6 +1,6 @@
 # Treza plugin
 
-[Agent Plugins](https://agent-plugins.org) package for the Treza MCP server. Install it in Cursor, Codex, GitHub Copilot, VS Code, or any client that supports the standard, and your agent can build, run, schedule, and publish AI video pipelines to YouTube and TikTok.
+[Agent Plugins](https://agent-plugins.org) package for the Treza MCP server. Install it in Cursor, Codex, GitHub Copilot, VS Code, or any client that supports the standard, and your agent can build, run, schedule, and publish AI video pipelines to YouTube and TikTok. The same repo is a Gemini CLI extension, and Cline can install it from `llms-install.md`.
 
 - Server: `https://www.trezalabs.com/api/mcp` (Streamable HTTP, OAuth with dynamic client registration)
 - Landing page and setup snippets: https://www.trezalabs.com/connect
@@ -35,6 +35,8 @@
 | `plugin.json` | Agent Plugins manifest |
 | `mcp.json` | Declares the remote Treza MCP server for plugin-aware clients |
 | `skills/treza-video-pipelines/` | A skill that teaches the agent the credits-first, estimate-before-run workflow |
+| `gemini-extension.json` | Gemini CLI extension manifest (the same remote server; Gemini CLI also loads the skill) |
+| `llms-install.md` | Setup steps an agent such as Cline can follow on its own |
 
 ## Tools
 
@@ -49,6 +51,26 @@ Twenty-four tools in five groups:
 Read-only tools carry `readOnlyHint`. `run_pipeline`, `publish_pipeline`, `assemble_video`, and `edit_asset` spend prepaid credits, and `run_pipeline` and `publish_pipeline` can post to a connected channel. `assemble_video` and `edit_asset` render in the background and return a run to poll with `get_run`.
 
 In clients that show MCP Apps panels, such as ChatGPT and Claude, results appear as panels: the finished file, the price with a Start render button, a library to pick files from, a map of a pipeline, and the post before it goes out. Other clients get the same answers as text. Posting with `publish_asset` needs a panel; without one, publish through a pipeline that ends in a `youtube-upload` or `tiktok-upload` node.
+
+## Gemini CLI
+
+```bash
+gemini extensions install https://github.com/treza-labs/treza-plugin
+```
+
+Then run `/mcp auth treza` inside Gemini CLI. Your browser opens Treza's sign-in page; sign in with Google, approve, and the tools are available.
+
+## Cline
+
+Add the server under MCP Servers, Remote Servers, with the URL `https://www.trezalabs.com/api/mcp` and Streamable HTTP, then click Authenticate. Or add it to `cline_mcp_settings.json`:
+
+```json
+{
+  "mcpServers": {
+    "treza": { "type": "streamableHttp", "url": "https://www.trezalabs.com/api/mcp" }
+  }
+}
+```
 
 ## Cursor without the plugin
 
