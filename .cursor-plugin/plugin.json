@@ -1,0 +1,17 @@
+{
+  "name": "treza",
+  "displayName": "Treza",
+  "version": "1.4.0",
+  "description": "Make AI videos from Cursor: one clip from a description, edits to media you have, and video pipelines that render and post to YouTube and TikTok.",
+  "author": {
+    "name": "Treza Labs",
+    "email": "hello@trezalabs.com"
+  },
+  "homepage": "https://www.trezalabs.com/integrations/cursor",
+  "repository": "https://github.com/treza-labs/treza-plugin",
+  "license": "MIT",
+  "keywords": ["mcp", "video", "ai-video", "youtube", "tiktok", "pipelines", "veo", "seedance"],
+  "logo": "assets/treza-logo-400.png",
+  "skills": "./skills/",
+  "mcpServers": "./mcp.json"
+}
