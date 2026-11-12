@@ -1,0 +1,35 @@
+{
+  "name": "treza",
+  "displayName": "Treza",
+  "version": "1.4.0",
+  "description": "Make AI videos from Claude Code: one clip from a description, edits to media you have, and video pipelines that render and post to YouTube and TikTok.",
+  "author": {
+    "name": "Treza Labs",
+    "email": "hello@trezalabs.com",
+    "url": "https://www.trezalabs.com"
+  },
+  "homepage": "https://www.trezalabs.com/integrations/claude",
+  "repository": "https://github.com/treza-labs/treza-plugin",
+  "license": "MIT",
+  "keywords": [
+    "mcp",
+    "video",
+    "ai-video",
+    "youtube",
+    "tiktok",
+    "pipelines",
+    "veo",
+    "seedance"
+  ],
+  "icon": "./assets/treza-logo-400.png",
+  "documentationUrl": "https://docs.trezalabs.com/api/mcp-server",
+  "supportUrl": "mailto:hello@trezalabs.com",
+  "privacyPolicyUrl": "https://docs.trezalabs.com/terms-and-privacy/privacy",
+  "termsOfServiceUrl": "https://docs.trezalabs.com/terms-and-privacy/terms-of-service",
+  "mcpServers": {
+    "treza": {
+      "type": "http",
+      "url": "https://www.trezalabs.com/api/mcp"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "name": "treza",
+  "owner": {
+    "name": "Treza Labs",
+    "email": "hello@trezalabs.com"
+  },
+  "metadata": {
+    "description": "Treza's plugin for Claude Code: make AI videos and run video pipelines from your agent."
+  },
+  "plugins": [
+    {
+      "name": "treza",
+      "source": "./",
+      "description": "Make AI videos from Claude Code: one clip from a description, edits to media you have, and video pipelines that render and post to YouTube and TikTok.",
+      "version": "1.4.0",
+      "author": {
+        "name": "Treza Labs",
+        "email": "hello@trezalabs.com"
+      },
+      "homepage": "https://www.trezalabs.com/integrations/claude",
+      "repository": "https://github.com/treza-labs/treza-plugin",
+      "license": "MIT",
+      "category": "media",
+      "keywords": ["video", "ai-video", "youtube", "tiktok", "mcp"]
+    }
+  ]
+}
